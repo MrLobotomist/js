@@ -1,7 +1,7 @@
-const DoublyLinkedList = require('./DoublyLinkedList'); // Импортируй свой класс
+import DoublyLinkedList from "./DoublyLinkedList";
 
 describe('DoublyLinkedList', () => {
-    let list;
+    let list = new DoublyLinkedList();
 
     beforeEach(() => {
         list = new DoublyLinkedList();
@@ -17,13 +17,16 @@ describe('DoublyLinkedList', () => {
         list.append(1);
         list.append(2);
         list.prepend(3);
+        //@ts-ignore
         expect(list.head.data).toBe(3);
+        //@ts-ignore
         expect(list.find(1).next).toBe(list.tail);
     });
 
     test('find', () => {
         list.append(1);
         list.append(2);
+        //@ts-ignore
         expect(list.find(2).data).toBe(2);
     });
 
@@ -40,6 +43,7 @@ describe('DoublyLinkedList', () => {
         list.append(2);
         list.update(2, 3);
         expect(list.find(2)).toBeNull();
+        //@ts-ignore
         expect(list.find(3).data).toBe(3);
     });
 });
